@@ -5,7 +5,6 @@ This project will help cambodian people learn more about other languages. It is 
 
 # Resources needed 
 Ask for:  
-.expo  
 node_modules  
 
 # Link to project design
