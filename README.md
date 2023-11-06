@@ -18,5 +18,5 @@ node_modules
 How to use docker
 ```
 docker build -t myapp .
-docker run -d -p 19006:19006 myapp
+docker run --rm -d -p 19006:19006 myapp
 ```
