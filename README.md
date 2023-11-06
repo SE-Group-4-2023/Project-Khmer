@@ -14,6 +14,8 @@ node_modules
 ## Docker
 - Install docker desktop
 - Open docker desktop  
-`How to use docker`
-* docker build -t myapp .
-* docker run -d -p 19006:19006 myapp
+How to use docker
+```
+docker build -t myapp .
+docker run -d -p 19006:19006 myapp
+```
