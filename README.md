@@ -13,5 +13,5 @@ node_modules
 # Software needed to test
 ## Docker
 - Install docker desktop
-- Open docker desktop
+- Open docker desktop  
 `How to use docker`
