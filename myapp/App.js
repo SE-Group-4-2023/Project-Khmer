@@ -3,6 +3,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 
+import Login from './component/Login';
+
 export default function App() {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState('');
@@ -20,10 +22,12 @@ export default function App() {
   };  
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app! this is me  </Text>
+      {/* <Text>Open up App.js to start working on your app! this is me  </Text>
       <Text>{data.message}</Text>
       <Text>{data.name}</Text>
-      <StatusBar style="auto" />
+      <StatusBar style="auto" /> */}
+      {/* <Text>hello world</Text> */}
+      <Login />
     </View>
   );
 }
