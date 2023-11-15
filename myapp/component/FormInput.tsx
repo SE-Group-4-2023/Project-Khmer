@@ -12,7 +12,7 @@ const FormInput = (props) => {
           marginBottom: 5,
         }}
       >
-        <Text style={{ left: 11, top: -20, fontSize: 18, color: "white" }}>
+        <Text style={{ left: 11, top: 10, fontSize: 18, color: "white" }}>
           {label}
         </Text>
         {error ? (

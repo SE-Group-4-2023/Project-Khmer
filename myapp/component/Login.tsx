@@ -86,10 +86,10 @@ export default function LoginScreen() {
           behavior={Platform.OS === "ios" ? "padding" : null}
         >
           <View>
-            {/* <Image
+            <Image
               source={require("../images/MerlMapLogo.png")}
               style={globalStyle.img}
-            /> */}
+            />
           </View>
           <View>
             <Text
