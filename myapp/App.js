@@ -6,26 +6,29 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 
 import Login from './component/Login';
+import Register from './component/Register_email';
+
 
 
 const Stack = createNativeStackNavigator();
 
 
 export default function App() {
-  const [loading, setLoading] = useState(false);
-  const [data, setData] = useState('');
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // const [loading, setLoading] = useState(false);
+  // const [data, setData] = useState('');
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
-  const fetchData = async () => {
-    try {
-      const response = await axios.get('http://localhost:8000/api/data')
-      setData(response.data)
-    } catch (error) {
-      console.log(error)
-    }
-  };  
+  // const fetchData = async () => {
+  //   try {
+  //     const response = await axios.get("/")
+  //     console.log(response)
+  //     setData(response.data)
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // };  
   return (
     // <View style={styles.container}>
     //   {/* <Text>Open up App.js to start working on your app! this is me  </Text>
@@ -39,6 +42,8 @@ export default function App() {
       <Stack.Navigator screenOptions = {{headerShown: false}}>
         <Stack.Group>
           <Stack.Screen name = "Login" component = {Login} />
+          <Stack.Screen name = "Register" component = {Register} />
+          {/* <Stack.Screen name = "Login" component = {Login} /> */}
         </Stack.Group>
       </Stack.Navigator>
     </NavigationContainer>

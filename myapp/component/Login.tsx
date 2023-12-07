@@ -23,6 +23,7 @@ import {
   updateError,
   isValidEmail,
 } from "../app/utils/methods";
+import Register from "./Register_email"
 
 const phoneValidate =
   /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/;
@@ -31,13 +32,13 @@ export default function LoginScreen() {
   const navigation = useNavigation();
 
   const [userInfo, setUserInfo] = useState({
-    phoneNumber: "",
+    email: "",
     password: "",
   });
 
   const [error, setError] = useState("");
 
-  const { phoneNumber, password } = userInfo;
+  const { email, password } = userInfo;
 
   const handleOnChangeText = (value, fieldName) => {
     setUserInfo({ ...userInfo, [fieldName]: value });
@@ -47,7 +48,7 @@ export default function LoginScreen() {
     if (!isValidObjField(userInfo))
       return updateError("Required all fields!", setError);
 
-    if (!phoneValidate(phoneNumber)) return updateError("Invalid email!", setError);
+    if (!isValidEmail(email)) return updateError("Invalid email!", setError);
 
     if (!password.trim() || password.length < 8)
       return updateError("Password is too short!", setError);
@@ -61,9 +62,10 @@ export default function LoginScreen() {
         const res = await client.post("/sign_in", { ...userInfo });
 
         if (res.data.success) {
-          setUserInfo({ phoneNumber: " ", password: " " });
-          // setProfile(res.data.user);
-          // setIsLoggedIn(true);
+          setUserInfo({ email: " ", password: " " });
+          setProfile(res.data.user);
+          setIsLoggedIn(true);
+          navigation.navigate("Register");
         }
         if(res.data.success == false) return updateError("User not found", setError);
 
@@ -76,7 +78,7 @@ export default function LoginScreen() {
 
   return (
     <LinearGradient
-      colors={["#B519EC", "#F25F9D"]}
+      colors={["#BADEFF", "#BADEFF"]}
       style={globalStyle.linearGradient}
     >
       <SafeAreaView style={globalStyle.container}>
@@ -87,7 +89,7 @@ export default function LoginScreen() {
         >
           <View>
             <Image
-              source={require("../images/MerlMapLogo.png")}
+              source={require("../images/AngkorSoft.png")}
               style={globalStyle.img}
             />
           </View>
@@ -118,10 +120,10 @@ export default function LoginScreen() {
               </Text>
             ) : null}
             <FormInput
-              value={phoneNumber}
-              onChangeText={(value) => handleOnChangeText(value, "phoneNumber")}
-              label="Phone Number"
-              placeholder="Enter Phone Number"
+              value={email}
+              onChangeText={(value) => handleOnChangeText(value, "email")}
+              label="Email"
+              placeholder="Enter Email"
               autoCapitalize="none"
             />
             <FormInput
@@ -137,7 +139,7 @@ export default function LoginScreen() {
             </View>
           </View>
           <TouchableOpacity
-            onPress={() => navigation.navigate("Register_email")}
+            onPress={() => navigation.navigate("Register")}
           >
             <Text style={globalStyle.new_here}>New here? Register here!</Text>
           </TouchableOpacity>
