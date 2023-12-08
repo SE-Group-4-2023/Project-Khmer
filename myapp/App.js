@@ -14,36 +14,13 @@ import MCQPage from './component/MCQPage';
 const Stack = createNativeStackNavigator();
 
 
-export default function App() {
-  // const [loading, setLoading] = useState(false);
-  // const [data, setData] = useState('');
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
-
-  // const fetchData = async () => {
-  //   try {
-  //     const response = await axios.get("/")
-  //     console.log(response)
-  //     setData(response.data)
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // };  
+export default function App() { 
   return (
-    // <View style={styles.container}>
-    //   {/* <Text>Open up App.js to start working on your app! this is me  </Text>
-    //   <Text>{data.message}</Text>
-    //   <Text>{data.name}</Text>
-    //   <StatusBar style="auto" /> */}
-    //   {/* <Text>hello world</Text> */}
-    //   <Login />
-    // </View>
     <NavigationContainer>
       <Stack.Navigator screenOptions = {{headerShown: false}}>
         <Stack.Group>
-          {/* <Stack.Screen name = "Login" component = {Login} /> */}
-          {/* <Stack.Screen name = "Register" component = {Register} /> */}
+          <Stack.Screen name = "Login" component = {Login} />
+          <Stack.Screen name = "Register" component = {Register} />
           <Stack.Screen name = "MCQPage" component = {MCQPage} />
         </Stack.Group>
       </Stack.Navigator>

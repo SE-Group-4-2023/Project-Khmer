@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import axios from 'axios';
@@ -50,16 +49,16 @@ const MCQPage = () => {
           )}
           <Text style={styles.questionText}>What is the fruit?</Text>
           <TouchableOpacity style={styles.choiceButton} onPress={() => handleSelectAnswer(currentQuestion.choice1)}>
-            <Text style={styles.choiceButtonText}>{currentQuestion.choice1}</Text>
+            <Text style={styles.choiceButtonText}>A. {currentQuestion.choice1}</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.choiceButton} onPress={() => handleSelectAnswer(currentQuestion.choice2)}>
-            <Text style={styles.choiceButtonText}>{currentQuestion.choice2}</Text>
+            <Text style={styles.choiceButtonText}>B. {currentQuestion.choice2}</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.choiceButton} onPress={() => handleSelectAnswer(currentQuestion.choice3)}>
-            <Text style={styles.choiceButtonText}>{currentQuestion.choice3}</Text>
+            <Text style={styles.choiceButtonText}>C. {currentQuestion.choice3}</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.choiceButton} onPress={() => handleSelectAnswer(currentQuestion.choice4)}>
-            <Text style={styles.choiceButtonText}>{currentQuestion.choice4}</Text>
+            <Text style={styles.choiceButtonText}>D. {currentQuestion.choice4}</Text>
           </TouchableOpacity>
         </View>
       )}

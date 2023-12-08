@@ -18,6 +18,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import FormInput from "./FormInput";
 import SubmitBtn from "./SubmitBtn";
 import client from "../app/api/client";
+import MCQPage from "./MCQPage";
 import {
   isValidObjField,
   updateError,
@@ -65,7 +66,7 @@ export default function LoginScreen() {
           setUserInfo({ email: " ", password: " " });
           setProfile(res.data.user);
           setIsLoggedIn(true);
-          navigation.navigate("Register");
+          navigation.navigate("MCQPage");
         }
         if(res.data.success == false) return updateError("User not found", setError);
 
