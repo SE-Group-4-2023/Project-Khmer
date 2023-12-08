@@ -18,6 +18,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import client from "../app/api/client";
 import FormInput from "./FormInput";
 import SubmitBtn from "./SubmitBtn";
+import Login from "./Login";
 import {
   isValidObjField,
   updateError,
@@ -98,7 +99,7 @@ const Register_email_screen = () => {
 
   return (
     <LinearGradient
-      colors={["#B519EC", "#F25F9D"]}
+      colors={["#BADEFF", "#BADEFF"]}
       style={globalStyle.linearGradient}
     >
       <SafeAreaView style={globalStyle.container}>
@@ -126,7 +127,7 @@ const Register_email_screen = () => {
                 <>
                   <View>
                     <Image
-                      source={require("../images/MerlMapLogo.png")}
+                      source={require("../images/AngkorSoft.png")}
                       style={globalStyle.img}
                     />
                   </View>
@@ -237,5 +238,6 @@ const globalStyle = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     left: "35%",
+    marginTop: "10%",
   },
 });

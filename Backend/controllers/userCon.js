@@ -2,16 +2,16 @@ const jwt = require('jsonwebtoken')
 const User = require('../example/usersInfo')
 
 exports.createUser = async (req, res) => {
-    const { fullname, phoneNumber, password } = req.body;
-    const isNewUser = await User.isThisPhoneNumInUse(phoneNumber);
+    const { fullname, email, password } = req.body;
+    const isNewUser = await User.isThisEmailInUse(email);
     if (!isNewUser)
       return res.json({
         success: false,
-        message: 'This phone number is already in use, try sign-in',
+        message: 'This email is already in use, try sign-in',
       });
     const user = await User({
       fullname,
-      phoneNumber,
+      email,
       password,
     });
     await user.save();
@@ -23,19 +23,19 @@ exports.userSignIn = (req, res) => {
 }
 
 exports.userSignIn = async (req, res) => {
-  const {phoneNumber, password} = req.body;
-  const user = await User.findOne({phoneNumber});
+  const {email, password} = req.body;
+  const user = await User.findOne({email});
 
   if(!user) return res.json({success: false, message: 'user not found'});
 
   const isMatch = await user.comparePassword(password);
-  if(!isMatch) return res.json({success: false, message: 'Phonenumber/password does not match'});    
+  if(!isMatch) return res.json({success: false, message: 'email/password does not match'});    
   
   const token = jwt.sign({userId: user._id}, process.env.JWT_SECRET, {expiresIn: "1d"});
 
   const userInfo = {
     fullname: user.fullname,
-    phonenumber: user.phoneNumber,
+    email: user.email,
     id: user._id,
   }
 

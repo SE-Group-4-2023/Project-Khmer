@@ -6,12 +6,9 @@ const userSchema = new mongoose.Schema({
       type: String,
       required: true,
     },
-    phoneNumber: {
+    email: {
       type: String,
       required: true,
-      minLength: [9, "no should have minimum 19 digits"],
-      maxLength: [10, "no should have maximum 10 digits"],
-      match: [/\d{9}/, "no should only have digits"],
       unique: true,
     },
     password: {
@@ -42,15 +39,15 @@ userSchema.methods.comparePassword = async function(password) {
   }
 }
 
-userSchema.statics.isThisPhoneNumInUse = async function(phoneNumber) {
-    if(!phoneNumber) throw new Error('invalid phone number');
+userSchema.statics.isThisEmailInUse = async function(email) {
+    if(!email) throw new Error('invalid email');
 
     try{
-      const user = await this.findOne({phoneNumber})
+      const user = await this.findOne({email})
     if(user) return false
     return true;
     } catch(error) {
-      console.log('error inside isThisPhoneNumInUse method', error.message)
+      console.log('error inside isThisEmailInUse method', error.message)
       return false
     }
 }

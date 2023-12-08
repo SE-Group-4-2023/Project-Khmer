@@ -16,7 +16,7 @@ const FormInput = (props) => {
           {label}
         </Text>
         {error ? (
-          <Text style={{ top: -20, fontSize: 14, color: "white" }}>
+          <Text style={{ top: 10, fontSize: 14, color: "white" }}>
             {error}
           </Text>
         ) : null}
