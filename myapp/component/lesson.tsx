@@ -38,7 +38,7 @@ export default function lesson({ navigation: { goBack } }) {
                 <View style={globalStyle.avatarContainer}>
                     <TouchableOpacity>
                         <View style={globalStyle.circle}></View>
-                        <Image source={require('../pic/profile.jpg')} style={globalStyle.avatar} />
+                        <Image source={require('../images/profile.jpg')} style={globalStyle.avatar} />
                     </TouchableOpacity>
                 </View>          
             </View>
@@ -54,7 +54,7 @@ export default function lesson({ navigation: { goBack } }) {
                         </View>
 
                         <View style={globalStyle.feature}>
-                            <Image source={require('../pic/exercise/mushroom.png')} style={globalStyle.exerciseImg} />
+                            <Image source={require('../images/exercise/mushroom.png')} style={globalStyle.exerciseImg} />
                         </View>
 
                         <View style={globalStyle.feature}>

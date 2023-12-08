@@ -42,7 +42,7 @@ export default function exercise({ navigation: { goBack } }) {
                 <View style={globalStyle.avatarContainer}>
                     <TouchableOpacity>
                         <View style={globalStyle.circle}></View>
-                        <Image source={require('../pic/profile.jpg')} style={globalStyle.avatar} />
+                        <Image source={require('../images/profile.jpg')} style={globalStyle.avatar} />
                     </TouchableOpacity>
                 </View>
 
@@ -59,7 +59,7 @@ export default function exercise({ navigation: { goBack } }) {
 
                                 <TouchableOpacity onPress = {() => navigation.navigate("lesson")}>
                                     <View style={globalStyle.circlebackground}>
-                                        <Image source={require('../pic/exercise/mcq.png')} style={globalStyle.exercise} />
+                                        <Image source={require('../images/mcq.png')} style={globalStyle.exercise} />
                                         <Text style={globalStyle.languagetitle}>Pick the correct word</Text>
                                         <Text style={globalStyle.languagetitle}>3 points</Text>
                                     </View>
@@ -67,7 +67,7 @@ export default function exercise({ navigation: { goBack } }) {
 
                                 <TouchableOpacity>
                                     <View style={globalStyle.circlebackground}>
-                                        <Image source={require('../pic/exercise/writing.png')} style={globalStyle.exercise} />
+                                        <Image source={require('../images/writing.png')} style={globalStyle.exercise} />
                                         <Text style={globalStyle.languagetitle}>Fill in the blanks</Text>
                                         <Text style={globalStyle.languagetitle}>3 points</Text>
                                     </View>
@@ -75,7 +75,7 @@ export default function exercise({ navigation: { goBack } }) {
 
                                 <TouchableOpacity>
                                     <View style={globalStyle.circlebackground}>
-                                        <Image source={require('../pic/exercise/hearing.png')} style={globalStyle.exercise} />
+                                        <Image source={require('../images/hearing.png')} style={globalStyle.exercise} />
                                         <Text style={globalStyle.languagetitle}>Story</Text>
                                         <Text style={globalStyle.languagetitle}>3 points</Text>
                                     </View>
@@ -86,7 +86,7 @@ export default function exercise({ navigation: { goBack } }) {
                                 <Text style={globalStyle.textsize}>Uncompleted exercises</Text>
                                 <TouchableOpacity>
                                     <View style={globalStyle.circlebackground}>
-                                        <Image source={require('../pic/exercise/hearing.png')} style={globalStyle.exercise} />
+                                        <Image source={require('../images/hearing.png')} style={globalStyle.exercise} />
                                         <Text style={globalStyle.languagetitle}>Listen comprehension</Text>
                                         <Text style={globalStyle.languagetitle}>7 points</Text>
                                     </View>
@@ -94,7 +94,7 @@ export default function exercise({ navigation: { goBack } }) {
 
                                 <TouchableOpacity>
                                     <View style={globalStyle.circlebackground}>
-                                        <Image source={require('../pic/exercise/hearing.png')} style={globalStyle.exercise} />
+                                        <Image source={require('../images/hearing.png')} style={globalStyle.exercise} />
                                         <Text style={globalStyle.languagetitle}>Grocery story</Text>
                                         <Text style={globalStyle.languagetitle}>3 points</Text>
                                     </View>
@@ -106,7 +106,7 @@ export default function exercise({ navigation: { goBack } }) {
                                 <Text style={globalStyle.textsize}>Completed exercises</Text>
                                 <TouchableOpacity>
                                     <View style={globalStyle.circlebackground}>
-                                        <Image source={require('../pic/exercise/writing.png')} style={globalStyle.exercise} />
+                                        <Image source={require('../images/writing.png')} style={globalStyle.exercise} />
                                         <Text style={globalStyle.languagetitle}>Introduction</Text>
                                         <Text style={globalStyle.languagetitle}>10 points</Text>
                                     </View>
@@ -114,7 +114,7 @@ export default function exercise({ navigation: { goBack } }) {
 
                                 <TouchableOpacity>
                                     <View style={globalStyle.circlebackground}>
-                                        <Image source={require('../pic/flag/british.png')} style={globalStyle.exercise} />
+                                        <Image source={require('../images/british.png')} style={globalStyle.exercise} />
                                         <Text style={globalStyle.languagetitle}>English 101</Text>
                                         <Text style={globalStyle.languagetitle}>3 points</Text>
                                     </View>
@@ -122,7 +122,7 @@ export default function exercise({ navigation: { goBack } }) {
 
                                 <TouchableOpacity>
                                     <View style={globalStyle.circlebackground}>
-                                        <Image source={require('../pic/exercise/mcq.png')} style={globalStyle.exercise} />
+                                        <Image source={require('../images/mcq.png')} style={globalStyle.exercise} />
                                         <Text style={globalStyle.languagetitle}>Grammar 101</Text>
                                         <Text style={globalStyle.languagetitle}>3 points</Text>
                                     </View>

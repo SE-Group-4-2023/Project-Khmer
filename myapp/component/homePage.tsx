@@ -35,7 +35,7 @@ export default function homepage({ navigation }) {
                 <View style={globalStyle.avatarContainer}>
                     <TouchableOpacity>
                         <View style={globalStyle.circle}></View>
-                        <Image source={require('../pic/profile.jpg')} style={globalStyle.avatar} />
+                        <Image source={require('../images/profile.jpg')} style={globalStyle.avatar} />
                     </TouchableOpacity>
                 </View>
             </View>
@@ -52,21 +52,21 @@ export default function homepage({ navigation }) {
 
                     <TouchableOpacity onPress = {() => navigation.navigate("exercise")}>
                         <View style={globalStyle.circlebackground}>
-                            <Image source={require('../pic/flag/british.png')} style={globalStyle.flag} />
+                            <Image source={require('../images/british.png')} style={globalStyle.flag} />
                             <Text style={globalStyle.languagetitle}>English</Text>
                         </View>
                     </TouchableOpacity>
 
                     <TouchableOpacity>
                         <View style={globalStyle.circlebackground}> 
-                            <Image source={require('../pic/flag/french.png')} style={globalStyle.flag} />
+                            <Image source={require('../images/french.png')} style={globalStyle.flag} />
                             <Text style={globalStyle.languagetitle}>French</Text>
                         </View>
                     </TouchableOpacity>
 
                     <TouchableOpacity>
                         <View style={globalStyle.circlebackground}> 
-                            <Image source={require('../pic/flag/cambodia.png')} style={globalStyle.flag} /> 
+                            <Image source={require('../images/cambodia.png')} style={globalStyle.flag} /> 
                             <Text style={globalStyle.languagetitle}>Khmer</Text>
                         </View>
                     </TouchableOpacity>
@@ -77,42 +77,42 @@ export default function homepage({ navigation }) {
 
                     <TouchableOpacity>
                         <View style={globalStyle.circlebackground}> 
-                            <Image source={require('../pic/flag/thai.png')} style={globalStyle.flag} />     
+                            <Image source={require('../images/thai.png')} style={globalStyle.flag} />     
                             <Text style={globalStyle.languagetitle}>Thai</Text>
                         </View>
                     </TouchableOpacity>
 
                     <TouchableOpacity>
                         <View style={globalStyle.circlebackground}> 
-                        <Image source={require('../pic/flag/spain.png')} style={globalStyle.flag} /> 
+                        <Image source={require('../images/spain.png')} style={globalStyle.flag} /> 
                             <Text style={globalStyle.languagetitle}>Spanish</Text>
                         </View>
                     </TouchableOpacity>
 
                     <TouchableOpacity>
                         <View style={globalStyle.circlebackground}>  
-                        <Image source={require('../pic/flag/germany.png')} style={globalStyle.flag} /> 
+                        <Image source={require('../images/germany.png')} style={globalStyle.flag} /> 
                             <Text style={globalStyle.languagetitle}>Mandarin</Text>
                         </View>
                     </TouchableOpacity>
 
                     <TouchableOpacity>
                         <View style={globalStyle.circlebackground}> 
-                        <Image source={require('../pic/flag/india.png')} style={globalStyle.flag} /> 
+                        <Image source={require('../images/india.png')} style={globalStyle.flag} /> 
                             <Text style={globalStyle.languagetitle}>Hindi</Text>
                         </View>
                     </TouchableOpacity>
 
                     <TouchableOpacity>
                         <View style={globalStyle.circlebackground}> 
-                            <Image source={require('../pic/flag/russia.png')} style={globalStyle.flag} /> 
+                            <Image source={require('../images/russia.png')} style={globalStyle.flag} /> 
                             <Text style={globalStyle.languagetitle}>Russian</Text>
                         </View>
                     </TouchableOpacity>
 
                     <TouchableOpacity>
                         <View style={globalStyle.circlebackground}>  
-                            <Image source={require('../pic/flag/germany.png')} style={globalStyle.flag} /> 
+                            <Image source={require('../images/germany.png')} style={globalStyle.flag} /> 
                             <Text style={globalStyle.languagetitle}>German</Text>
                         </View>
                     </TouchableOpacity>
@@ -120,7 +120,7 @@ export default function homepage({ navigation }) {
 
                     <TouchableOpacity>
                         <View style={globalStyle.circlebackground}>
-                            <Image source={require('../pic/flag/italy.png')} style={globalStyle.flag} />   
+                            <Image source={require('../images/italy.png')} style={globalStyle.flag} />   
                             <Text style={globalStyle.languagetitle}>Italian</Text>
                         </View>
                     </TouchableOpacity>
