@@ -54,7 +54,7 @@ export default function lesson({ navigation: { goBack } }) {
                         </View>
 
                         <View style={globalStyle.feature}>
-                            <Image source={require('../images/exercise/mushroom.png')} style={globalStyle.exerciseImg} />
+                            <Image source={require('../images/mushroom.png')} style={globalStyle.exerciseImg} />
                         </View>
 
                         <View style={globalStyle.feature}>
