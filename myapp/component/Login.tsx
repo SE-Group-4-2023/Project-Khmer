@@ -25,8 +25,8 @@ import {
 } from "../app/utils/methods";
 import Register from "./Register_email"
 
-const phoneValidate =
-  /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/;
+// const phoneValidate =
+//   /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/;
 
 export default function LoginScreen() {
   const navigation = useNavigation();
