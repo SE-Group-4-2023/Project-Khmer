@@ -7,7 +7,7 @@ import { MaterialCommunityIcons, Entypo } from '@expo/vector-icons';
 
 export default function homepage({ navigation }) {
     const scrollViewRef = useRef(null);
-    // const navigation = useNavigation();
+    const navigation = useNavigation();
     return (
         <ScrollView 
         ref={scrollViewRef}
@@ -50,7 +50,7 @@ export default function homepage({ navigation }) {
                 <View style={globalStyle.feature}>
                     <Text style={globalStyle.textsize}>Featured Language</Text>
 
-                    <TouchableOpacity onPress = {() => navigation.navigate("exercise")}>
+                    <TouchableOpacity onPress = {() => navigation.navigate("listOfExercise")}>
                         <View style={globalStyle.circlebackground}>
                             <Image source={require('../images/british.png')} style={globalStyle.flag} />
                             <Text style={globalStyle.languagetitle}>English</Text>
