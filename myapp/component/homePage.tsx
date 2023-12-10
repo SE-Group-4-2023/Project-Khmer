@@ -4,8 +4,9 @@ import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar, Button, Image, Text, StyleSheet, View, SafeAreaView, TouchableOpacity, TextInput, Pressable, ScrollView, Keyboard, KeyboardAvoidingView, } from 'react-native';
 import { MaterialCommunityIcons, Entypo } from '@expo/vector-icons';
+import ListOfExercise from './ListOfExercise';
 
-export default function homepage({ navigation }) {
+export default function Homepage({ navigation: goBack }) {
     const scrollViewRef = useRef(null);
     const navigation = useNavigation();
     return (
@@ -50,7 +51,7 @@ export default function homepage({ navigation }) {
                 <View style={globalStyle.feature}>
                     <Text style={globalStyle.textsize}>Featured Language</Text>
 
-                    <TouchableOpacity onPress = {() => navigation.navigate("listOfExercise")}>
+                    <TouchableOpacity onPress = {() => navigation.navigate("ListOfExercise")}>
                         <View style={globalStyle.circlebackground}>
                             <Image source={require('../images/british.png')} style={globalStyle.flag} />
                             <Text style={globalStyle.languagetitle}>English</Text>

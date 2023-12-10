@@ -4,8 +4,8 @@ import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar, Button, Image, Text, StyleSheet, View, SafeAreaView, TouchableOpacity, TextInput, Pressable, ScrollView, Keyboard, KeyboardAvoidingView, } from 'react-native';
 import { MaterialCommunityIcons, Entypo, AntDesign } from '@expo/vector-icons';
-import homePage from '../component/homePage';
-import lesson from '../component/lesson';
+import homePage from './HomePage';
+import lesson from './Lesson';
 
 
 export default function exercise({ navigation: { goBack } }) {

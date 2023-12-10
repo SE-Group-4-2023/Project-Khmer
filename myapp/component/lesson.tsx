@@ -3,8 +3,10 @@ import { Platform } from 'react-native';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { StatusBar, Button, Image, Text, StyleSheet, View, SafeAreaView, TouchableOpacity, TextInput, Pressable, ScrollView, Keyboard, KeyboardAvoidingView, } from 'react-native';
 import { MaterialCommunityIcons, Entypo, AntDesign, Ionicons } from '@expo/vector-icons';
-import homePage from '../component/homePage';
-import listOfExercise from '../component/listOfExercise';
+import homePage from './HomePage';
+import listOfExercise from './ListOfExercise';
+import axios from 'axios';
+import client from "../app/api/client";
 // import profile from '../example/profile';
 // import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -13,10 +15,40 @@ const home = 'homepage';
 const listOfExercises = 'Exercise';
 const userProfile = 'profile';
 
-export default function lesson({ navigation: { goBack } }) {
+const Lesson = ({ navigation: { goBack } }) => {
     const scrollViewRef = useRef(null);
     const navigation = useNavigation();
     // const Tab = createBottomTabNavigator();
+
+    const [currentQuestion, setCurrentQuestion] = useState(null);
+    const [userAnswer, setUserAnswer] = useState(null);
+    const [imageError, setImageError] = useState(null);
+  
+    useEffect(() => {
+      fetchRandomQuestion();
+    }, []);
+  
+    const fetchRandomQuestion = async () => {
+      try {
+        const response = await client.get('/question');
+        const question = response.data;
+  
+        setCurrentQuestion(question);
+        setUserAnswer(null);
+        setImageError(null); // Reset image error state
+      } catch (error) {
+        console.error('Error fetching question:', error);
+      }
+    };
+  
+    const handleSelectAnswer = (answer) => {
+      setUserAnswer(answer);
+      alert(answer === currentQuestion.answer ? 'Correct!' : 'Incorrect');
+    };
+  
+    const handleImageError = () => {
+      setImageError('Error loading image');
+    };
     return (
         <>
         <SafeAreaView style={globalStyle.container}>
@@ -46,79 +78,65 @@ export default function lesson({ navigation: { goBack } }) {
             <SafeAreaView style={globalStyle.safeview}>
             <StatusBar hidden = {false} />
                     <View style={globalStyle.main}>
+                    {currentQuestion && (
+                        <View>
+                            
+                            <View style={globalStyle.feature}>
+                                <View style={globalStyle.question}>
+                                    <Text style={globalStyle.textsize}>Question 1: What is this called in english?</Text>
+                                </View>                           
+                            </View>
+                            <View style={globalStyle.feature}>
+                                {imageError ? (
+                                    <Text>{imageError}</Text>
+                                ) : (
+                                <Image
+                                source={{ uri: currentQuestion.question }}
+                                style={globalStyle.exerciseImg}
+                                onError={handleImageError} // Handle image loading errors
+                                />
+                                )}
+                            </View>
 
-                        <View style={globalStyle.feature}>
-                            <View style={globalStyle.question}>
-                                <Text style={globalStyle.textsize}>Question 1: What is this called in english?</Text>
-                            </View>                           
-                        </View>
+                            <View style={globalStyle.feature}>
+                                <View style={globalStyle.mcq}>
+                                    <View style={globalStyle.choice1}>
+                                        <TouchableOpacity style={globalStyle.circlebackground1} onPress={() => handleSelectAnswer(currentQuestion.choice1)}>
+                                            <View>
+                                                <Text style={globalStyle.choiceText}>A. {currentQuestion.choice1}</Text>
+                                            </View>
+                                        </TouchableOpacity>
 
-                        <View style={globalStyle.feature}>
-                            <Image source={require('../images/mushroom.png')} style={globalStyle.exerciseImg} />
-                        </View>
+                                        <TouchableOpacity style={globalStyle.circlebackground3} onPress={() => handleSelectAnswer(currentQuestion.choice3)}>
+                                            <View>
+                                                <Text style={globalStyle.choiceText}>C. {currentQuestion.choice3}</Text>
+                                            </View>
+                                        </TouchableOpacity>
+                                    </View>
 
-                        <View style={globalStyle.feature}>
-                            <View style={globalStyle.mcq}>
-                                <View style={globalStyle.choice1}>
-                                    <TouchableOpacity style={globalStyle.circlebackground1}>
-                                        <View>
-                                            <Text style={globalStyle.choiceText}>Accorns</Text>
-                                        </View>
-                                    </TouchableOpacity>
+                                    <View style={globalStyle.choice2}>
+                                        <TouchableOpacity style={globalStyle.circlebackground2} onPress={() => handleSelectAnswer(currentQuestion.choice2)}>
+                                            <View>
+                                                <Text style={globalStyle.choiceText}>B. {currentQuestion.choice2}</Text>
+                                            </View>
+                                        </TouchableOpacity>
 
-                                    <TouchableOpacity style={globalStyle.circlebackground3}>
-                                        <View>
-                                            <Text style={globalStyle.choiceText}>Peanuts</Text>
-                                        </View>
-                                    </TouchableOpacity>
-                                </View>
-
-                                <View style={globalStyle.choice2}>
-                                    <TouchableOpacity style={globalStyle.circlebackground2}>
-                                        <View>
-                                            <Text style={globalStyle.choiceText}>Mushroom</Text>
-                                        </View>
-                                    </TouchableOpacity>
-
-                                    <TouchableOpacity style={globalStyle.circlebackground4}>
-                                        <View>
-                                            <Text style={globalStyle.choiceText}>Hamster</Text>
-                                        </View>
-                                    </TouchableOpacity>
+                                        <TouchableOpacity style={globalStyle.circlebackground4} onPress={() => handleSelectAnswer(currentQuestion.choice4)}>
+                                            <View>
+                                                <Text style={globalStyle.choiceText}>D. {currentQuestion.choice4}</Text>
+                                            </View>
+                                        </TouchableOpacity>
+                                    </View>
                                 </View>
                             </View>
                         </View>
-                        
-                    </View>
+                    )}
+                    <TouchableOpacity style={globalStyle.nextButton} onPress={fetchRandomQuestion}>
+                        <Text style={globalStyle.nextButtonText}>Next Question</Text>
+                    </TouchableOpacity>
+                </View>
             </SafeAreaView>
         </SafeAreaView>
-              
-            {/* <NavigationContainer>
-                <Tab.Navigator 
-                    initialRouteName={home}
-                    screenOptions={({ route }) => ({
-                        tabBarIcon: ({focused, color, size}) => {
-                            let iconName;
-                            let rn = route.name;
-
-                            if (rn === home) {
-                                iconName = focused ? 'home' : 'home-outline';
-                            } else if (rn === listOfExercises) {
-                                iconName = focused ? 'list' : 'list-outline';
-                            } else if (rn === userProfile) { 
-                                iconName = focused ? 'person-circle' : 'person-circle-outline';
-                            }
-                            
-                            return <Ionicons name={iconName} size={size} color={color} />
-                        }
-                    })}>
-
-                    <Tab.Screen name={home} component={homepage} />
-                    <Tab.Screen name={listOfExercises} component={exercise} />
-                    <Tab.Screen name={userProfile} component={profile} />
-
-                </Tab.Navigator>
-            </NavigationContainer> */}
       </>
     );
 };
@@ -136,6 +154,19 @@ const globalStyle = StyleSheet.create({
     //top of the page
     top: {
 
+    },
+    nextButton: {
+        margin: 100,
+        padding: 12,
+        borderRadius: 8,
+        backgroundColor: '#BF40BF',
+        alignItems: 'center', // Center items horizontally
+        justifyContent: 'center',
+      },
+      nextButtonText: {
+        color: '#FFF',
+        fontSize: 16,
+        fontWeight: 'bold',
     },
     exitButton1: {
         position: 'absolute',
@@ -204,9 +235,10 @@ const globalStyle = StyleSheet.create({
     },
     exerciseImg: {
         position: "relative",
-        width: 350,
-        height: 250,
+        width: 300,
+        height: 300,
         right: 0,
+        resizeMode: 'contatin',
     },
     question: {
         width: 350,
@@ -276,3 +308,5 @@ const globalStyle = StyleSheet.create({
         fontWeight: 'bold',
     },
   });
+
+export default Lesson;
