@@ -6,5 +6,5 @@ This project will help cambodian people learn more about other languages. It is 
 # Link to project design
 [Project design link](https://www.figma.com/file/9Dv82fsa2Vw1DiootivyUX/Project?type=design&node-id=0%3A1&mode=design&t=ikUyCQL367r2jD6a-1)
 
-## Important
+# Important
 Check out the Readme.txt in the zip file
